@@ -109,7 +109,9 @@ async def generate_code(request: CodeRequest):
             "hitl_enabled": False
         }
         
-        result = agent.invoke(initial_state)
+        # Add thread_id for checkpointing
+        config = {"configurable": {"thread_id": str(uuid.uuid4())}}
+        result = agent.invoke(initial_state, config)
         
         return CodeResponse(
             success=result.get("execution_success", False),
@@ -157,7 +159,9 @@ async def stream_generation(
                 "hitl_enabled": False
             }
             
-            result = agent.invoke(initial_state)
+            # Add thread_id for checkpointing
+            config = {"configurable": {"thread_id": str(uuid.uuid4())}}
+            result = agent.invoke(initial_state, config)
             
             yield f"data: {json.dumps({'event': 'complete', 'code': result.get('code'), 'success': result.get('execution_success')})}\n\n"
             
