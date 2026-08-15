@@ -1,0 +1,30 @@
+# CodeForge AI Dependencies
+# =========================
+
+# Web Framework
+fastapi>=0.115.0
+uvicorn[standard]>=0.32.0
+
+# LangChain Core
+langchain>=0.3.0
+langchain-core>=0.3.0
+langchain-community>=0.3.0
+
+# LangGraph
+langgraph>=0.2.0
+
+# Groq Integration
+langchain-groq>=0.2.0
+
+# Utilities
+python-dotenv>=1.0.0
+pydantic>=2.13.0
+tenacity>=9.0.0
+
+# Async Support
+aiofiles>=24.1.0
+
+# Testing (Optional)
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+httpx>=0.27.0
